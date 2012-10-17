@@ -61,6 +61,7 @@ Implemented by Chris M. Christoudias, Bogdan Georgescu
 /*      initialized.                                   */
 /*******************************************************/
 
+//Start TSB
 msImageProcessor::msImageProcessor( void )
 {
 
