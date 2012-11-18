@@ -16,56 +16,46 @@
 #include <stdio.h>
 #include <stdlib.h>
 
-//*******************************************************
-//define prototypes of global functions
-//*******************************************************
+#include "opencv2/core/core.hpp"
+#include "opencv2/imgproc/imgproc.hpp"
+#include "opencv2/highgui/highgui.hpp"
 
-//check syntax of source file
-CmCError CheckSyntax(char *filename, CmCParser *synParser);
+#include "../preprocessing/MSWrap.h"
+#include "../preprocessing/PreProcessing.h"
 
-//run the script
-CmCError Run(CmCParser *script);
-
-//report system errors
-void Report(CmCError *error, char *srcFilename, CmCParser *srcParser);
-
-//*******************************************************
+using namespace std;
+using namespace cv;
 
 int main(int argc, char **argv)
 {
-  //check usage
-  if(argc != 2) {
-      fprintf(stderr, "--------------------------------------------------\n");
-      fprintf(stderr, "Usage: %s <filename>\n", argv[0]);
-      fprintf(stderr, "--------------------------------------------------\n");
-      fprintf(stderr, "filename: File containing EDISON execution script.\n");
-      fprintf(stderr, "--------------------------------------------------\n");
-      exit(1);
-  }
- // fprintf(stderr, "OK\n");
-  //parse the source file and check for
-  //syntaxical errors
-  CmCParser *srcParser = new CmCParser;
-  CmCError error = CheckSyntax(argv[1], srcParser);
-  if(error.errorCode_) {
-    Report(&error, argv[1], srcParser);
-	fprintf(stderr, "Here\n");
+	Mat matOrig;
+	matOrig = imread(argv[1]);
 
-    exit(1);
-  }
-//fprintf(stderr,"Finsihed CheckSyn\n");
-  //execute script
-  error = Run(srcParser);
-  if(error.errorCode_) {
-    Report(&error, argv[1], srcParser);
-	fprintf(stderr, "there\n");
-    exit(1);
-  }
+	if(matOrig.cols==0)
+	{
+		cerr << "Wrong input image" << endl;
+		return 1;
+	}
 
-//fprintf(stderr,"Finsihed run\n");
-  //de-allocate parser
-  delete srcParser;
+	
+	Mat matPreprocessed;
 
-  return 0;
+	PreProcessing(matOrig, matPreprocessed);
+	cerr << "Finished pre-processing" << endl;
+
+	Mat matOutput;
+
+	MeanShift(matPreprocessed, matOutput);
+
+	cerr << "Finished mean shift" << endl;
+
+	string strOutputFile = argv[2];
+
+	imwrite(strOutputFile, matOutput);
+
+	return 0;
 }
+
+
+
 

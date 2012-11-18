@@ -16,6 +16,12 @@
     <ClInclude Include="edge\BgEdgeDetect.h" />
     <ClInclude Include="edge\BgEdgeList.h" />
     <ClInclude Include="edge\BgImage.h" />
+    <ClInclude Include="preprocessing\AntiGeometricDiffusion.h" />
+    <ClInclude Include="preprocessing\MSWrap.h" />
+    <ClInclude Include="preprocessing\PostProcessing.h" />
+    <ClInclude Include="preprocessing\PreProcessing.h" />
+    <ClInclude Include="preprocessing\RegionLabelling.h" />
+    <ClInclude Include="preprocessing\Utilities.h" />
     <ClInclude Include="prompt\defs.h" />
     <ClInclude Include="prompt\edison.h" />
     <ClInclude Include="prompt\error.h" />
@@ -36,6 +42,12 @@
     <ClCompile Include="edge\BgEdgeList.cpp" />
     <ClCompile Include="edge\BgGlobalFc.cpp" />
     <ClCompile Include="edge\BgImage.cpp" />
+    <ClCompile Include="preprocessing\AntiGeometricDiffusion.cpp" />
+    <ClCompile Include="preprocessing\MSWrap.cpp" />
+    <ClCompile Include="preprocessing\PostProcessing.cpp" />
+    <ClCompile Include="preprocessing\PreProcessing.cpp" />
+    <ClCompile Include="preprocessing\RegionLabelling.cpp" />
+    <ClCompile Include="preprocessing\Utilities.cpp" />
     <ClCompile Include="prompt\edison.cpp" />
     <ClCompile Include="prompt\globalFnc.cpp" />
     <ClCompile Include="prompt\libppm.cpp" />
@@ -87,10 +99,13 @@
       <WarningLevel>Level3</WarningLevel>
       <Optimization>Disabled</Optimization>
       <PreprocessorDefinitions>WIN32;_DEBUG;_CONSOLE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <AdditionalIncludeDirectories>C:\development\projects\EDISON\thirdparty\opencv\include</AdditionalIncludeDirectories>
     </ClCompile>
     <Link>
       <SubSystem>Console</SubSystem>
       <GenerateDebugInformation>true</GenerateDebugInformation>
+      <AdditionalLibraryDirectories>C:\development\projects\EDISON\thirdparty\opencv\lib\debug;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
+      <AdditionalDependencies>opencv_core249d.lib;opencv_highgui249d.lib;opencv_imgproc249d.lib;%(AdditionalDependencies)</AdditionalDependencies>
     </Link>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
@@ -102,12 +117,15 @@
       <FunctionLevelLinking>true</FunctionLevelLinking>
       <IntrinsicFunctions>true</IntrinsicFunctions>
       <PreprocessorDefinitions>WIN32;NDEBUG;_CONSOLE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <AdditionalIncludeDirectories>C:\development\projects\EDISON\thirdparty\opencv\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
     </ClCompile>
     <Link>
       <SubSystem>Console</SubSystem>
       <GenerateDebugInformation>true</GenerateDebugInformation>
       <EnableCOMDATFolding>true</EnableCOMDATFolding>
       <OptimizeReferences>true</OptimizeReferences>
+      <AdditionalLibraryDirectories>C:\development\projects\EDISON\thirdparty\opencv\lib\release</AdditionalLibraryDirectories>
+      <AdditionalDependencies>opencv_core249.lib;opencv_highgui249.lib;opencv_imgproc249.lib;%(AdditionalDependencies)</AdditionalDependencies>
     </Link>
   </ItemDefinitionGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
