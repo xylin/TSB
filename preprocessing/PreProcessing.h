@@ -7,6 +7,6 @@
 using namespace cv;
 
 
-void PreProcessing(const Mat& matInput, Mat&matOutput);
+void PreProcessing(const Mat& matInput, Mat&matOutput, Mat&matMask);
 
 #endif

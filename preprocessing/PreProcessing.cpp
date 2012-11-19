@@ -8,32 +8,25 @@
 #include "PreProcessing.h"
 
 
-void PreProcessing(const Mat& matInput, Mat&matOutput)
+void PreProcessing(const Mat& matInput, Mat&matBalckHat, Mat& matMask)
 {
-	Mat dst1;
+	//Mat dst1;
 
 	int element_shape = MORPH_RECT;
 
 	int an =20;
 	Mat element = getStructuringElement(element_shape, Size(an*2+1, an*2+1), Point(an, an) );
 
-	morphologyEx(matInput, dst1, CV_MOP_BLACKHAT, element);
+	morphologyEx(matInput, matBalckHat, CV_MOP_BLACKHAT, element);
+	
+	imwrite("C:/development/projects/TSB/BackHat.jpg", matBalckHat);
 
-	Mat gray;
+/*	Mat gray;
 
-	cvtColor(dst1, gray, CV_BGR2GRAY);
-
-	Mat edge;
-
-	blur(gray, edge, Size(5,5));
-
-	Canny(edge, edge, 10, 15, 3);
-
-	imwrite("C:/development/projects/TSB/BackPHAP.jpg", dst1);
-	imwrite("C:/development/projects/TSB/BackPHAP_edge.jpg", edge);
-
-	int iWidth = edge.cols;
-	int iHeight = edge.rows;
+	cvtColor(matBalckHat, gray, CV_BGR2GRAY);
+	
+	int iWidth = matInput.cols;
+	int iHeight = matInput.rows;
 
 	float *pfInput = new float[iWidth*iHeight];
 
@@ -52,14 +45,14 @@ void PreProcessing(const Mat& matInput, Mat&matOutput)
 	float *pfOutput = new float[iWidth*iHeight];
 	memset(pfOutput, 0, sizeof(float)*iWidth*iHeight);
 
-	float fDelta =1.5;
-	int iMaxIterations = 1;
-	int iType = 0;
+	float fDelta = 0.5;
+	int iMaxIterations =0;
+	int iType = 1;
 
 	AntiGeometricDiffusionInSlice(pfInput, fDelta, iMaxIterations, iType, iHeight, iWidth, pfOutput);
 
-	matOutput.create(gray.size(), gray.type());
-	matOutput.setTo(0);
+	matMask.create(gray.size(), gray.type());
+	matMask.setTo(0);
 
 	iCount = 0;
 
@@ -67,18 +60,17 @@ void PreProcessing(const Mat& matInput, Mat&matOutput)
 	{
 		for(int i=0; i<iWidth; i++)
 		{
-			matOutput.at<uchar>(j, i) = pfOutput[iCount];
+			matMask.at<uchar>(j, i) = pfOutput[iCount];
 
 			iCount++;
 		}
 	}
 
-	Mat dump;
-	dump;
+	Mat dump;	
 
-	medianBlur(matOutput, dump, 3);
-
-	matOutput = dst1;
-
-	imwrite("C:/Development/projects/TSB/antiGeo.jpg", matOutput);
+	medianBlur(matMask, dump, 3);
+	
+	matMask = dump;
+	
+	imwrite("C:/Development/projects/TSB/antiGeo.jpg", matMask);*/
 }

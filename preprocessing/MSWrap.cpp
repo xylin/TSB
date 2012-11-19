@@ -6,9 +6,9 @@ using namespace cv;
 void MeanShift(const Mat&imgOrig, Mat&MS_Result)
 {	
 	const int SpatialBandwidth = 7;
-	const int RangeBandwidth = 7;
-	const int MinimumRegionArea = 200;
-	const double EdgeStrengthThreshold = 0.001;
+	const int RangeBandwidth = 6;
+	const int MinimumRegionArea = 500;
+	const double EdgeStrengthThreshold = 0.0001;
 
 	CreateEDS(SpatialBandwidth, RangeBandwidth, MinimumRegionArea, EdgeStrengthThreshold);
 	

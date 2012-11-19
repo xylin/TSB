@@ -6,7 +6,9 @@
 
 using namespace cv;
 
-
-void PostProcessing(const Mat& matInput, Mat&matOutput);
-
+void RemoveNoiseEdgePoint(const Mat&edgeIn, const int iSize, Mat&edgeOut);
+void PostProcessing(Mat& matInput, Mat matMeanShift, Mat&matOutput);
+void FillHole(const Mat& matIn, Mat& matOut);
+void GetMS_FGD_Regions(Mat& imgMeanShiftResult, Mat&matMask, vector< vector<Point> >& vvptCrnRegion);
+void GetOverlay(const Mat& maskCrn, const Mat& maskGlobal, Mat& maskOut);
 #endif

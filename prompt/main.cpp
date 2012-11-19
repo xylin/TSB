@@ -22,6 +22,7 @@
 
 #include "../preprocessing/MSWrap.h"
 #include "../preprocessing/PreProcessing.h"
+#include "../preprocessing/PostProcessing.h"
 
 using namespace std;
 using namespace cv;
@@ -31,27 +32,52 @@ int main(int argc, char **argv)
 	Mat matOrig;
 	matOrig = imread(argv[1]);
 
+	/*
+	Rect rctcrop;
+
+	rctcrop.x = 1000;
+	rctcrop.y = 1000;
+	rctcrop.width = 512;
+	rctcrop.height = 512;
+
+	Mat matcrop;
+
+	matcrop = matOrig(rctcrop);
+
+	imwrite("C:/development/projects/TSB/10_h_crop.jpg", matcrop);
+
+	return 0;
+
+
 	if(matOrig.cols==0)
 	{
 		cerr << "Wrong input image" << endl;
 		return 1;
 	}
-
+	*/
 	
-	Mat matPreprocessed;
+	Mat matBlackHat;
+	Mat matAntiGeo;
 
-	PreProcessing(matOrig, matPreprocessed);
+	PreProcessing(matOrig, matBlackHat, matAntiGeo);
 	cerr << "Finished pre-processing" << endl;
 
-	Mat matOutput;
+	Mat matMeanShift;
 
-	MeanShift(matPreprocessed, matOutput);
+	MeanShift(matBlackHat, matMeanShift);
 
 	cerr << "Finished mean shift" << endl;
+
+	Mat matOutput;
+	
+
+	PostProcessing(matBlackHat, matMeanShift, matOutput);
+
 
 	string strOutputFile = argv[2];
 
 	imwrite(strOutputFile, matOutput);
+	imwrite("C:/development/projects/TSB/MeanShift.jpg", matMeanShift);
 
 	return 0;
 }
