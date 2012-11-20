@@ -138,11 +138,13 @@ copy .\thirdparty\opencv\dll\opencv_imgproc249d.dll .\debug\</Command>
 copy .\thirdparty\opencv\dll\opencv_highgui249.dll .\release\
 copy .\thirdparty\opencv\dll\opencv_imgproc249.dll .\release\
 
+mkdir .\bin\release\
+
 copy .\thirdparty\opencv\dll\opencv_core249.dll .\bin\release\
 copy .\thirdparty\opencv\dll\opencv_highgui249.dll .\bin\release\
 copy .\thirdparty\opencv\dll\opencv_imgproc249.dll .\bin\release\
 
-copy .\release\EDISON.exe .\bin\release\</Command>
+copy .\release\tsb.exe .\bin\release\</Command>
     </PostBuildEvent>
   </ItemDefinitionGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
