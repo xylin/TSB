@@ -1,0 +1,156 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <ClInclude Include="prompt\defs.h">
+      <Filter>prompt</Filter>
+    </ClInclude>
+    <ClInclude Include="prompt\parser.h">
+      <Filter>prompt</Filter>
+    </ClInclude>
+    <ClInclude Include="prompt\edison.h">
+      <Filter>prompt</Filter>
+    </ClInclude>
+    <ClInclude Include="prompt\error.h">
+      <Filter>prompt</Filter>
+    </ClInclude>
+    <ClInclude Include="prompt\flags.h">
+      <Filter>prompt</Filter>
+    </ClInclude>
+    <ClInclude Include="prompt\imfilt.h">
+      <Filter>prompt</Filter>
+    </ClInclude>
+    <ClInclude Include="prompt\libppm.h">
+      <Filter>prompt</Filter>
+    </ClInclude>
+    <ClInclude Include="segm\ms.h">
+      <Filter>segm</Filter>
+    </ClInclude>
+    <ClInclude Include="segm\msImageProcessor.h">
+      <Filter>segm</Filter>
+    </ClInclude>
+    <ClInclude Include="segm\msSys.h">
+      <Filter>segm</Filter>
+    </ClInclude>
+    <ClInclude Include="segm\RAList.h">
+      <Filter>segm</Filter>
+    </ClInclude>
+    <ClInclude Include="segm\rlist.h">
+      <Filter>segm</Filter>
+    </ClInclude>
+    <ClInclude Include="segm\tdef.h">
+      <Filter>segm</Filter>
+    </ClInclude>
+    <ClInclude Include="edge\BgDefaults.h">
+      <Filter>edge</Filter>
+    </ClInclude>
+    <ClInclude Include="edge\BgEdge.h">
+      <Filter>edge</Filter>
+    </ClInclude>
+    <ClInclude Include="edge\BgEdgeDetect.h">
+      <Filter>edge</Filter>
+    </ClInclude>
+    <ClInclude Include="edge\BgEdgeList.h">
+      <Filter>edge</Filter>
+    </ClInclude>
+    <ClInclude Include="edge\BgImage.h">
+      <Filter>edge</Filter>
+    </ClInclude>
+    <ClInclude Include="preprocessing\PreProcessing.h">
+      <Filter>PreProcessing</Filter>
+    </ClInclude>
+    <ClInclude Include="preprocessing\AntiGeometricDiffusion.h">
+      <Filter>PreProcessing</Filter>
+    </ClInclude>
+    <ClInclude Include="preprocessing\RegionLabelling.h">
+      <Filter>PreProcessing</Filter>
+    </ClInclude>
+    <ClInclude Include="preprocessing\Utilities.h">
+      <Filter>PreProcessing</Filter>
+    </ClInclude>
+    <ClInclude Include="preprocessing\PostProcessing.h">
+      <Filter>PreProcessing</Filter>
+    </ClInclude>
+    <ClInclude Include="preprocessing\MSWrap.h">
+      <Filter>PreProcessing</Filter>
+    </ClInclude>
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="prompt\edison.cpp">
+      <Filter>prompt</Filter>
+    </ClCompile>
+    <ClCompile Include="prompt\globalFnc.cpp">
+      <Filter>prompt</Filter>
+    </ClCompile>
+    <ClCompile Include="prompt\libppm.cpp">
+      <Filter>prompt</Filter>
+    </ClCompile>
+    <ClCompile Include="prompt\main.cpp">
+      <Filter>prompt</Filter>
+    </ClCompile>
+    <ClCompile Include="prompt\parser.cpp">
+      <Filter>prompt</Filter>
+    </ClCompile>
+    <ClCompile Include="segm\ms.cpp">
+      <Filter>segm</Filter>
+    </ClCompile>
+    <ClCompile Include="segm\msImageProcessor.cpp">
+      <Filter>segm</Filter>
+    </ClCompile>
+    <ClCompile Include="segm\msSysPrompt.cpp">
+      <Filter>segm</Filter>
+    </ClCompile>
+    <ClCompile Include="segm\RAList.cpp">
+      <Filter>segm</Filter>
+    </ClCompile>
+    <ClCompile Include="segm\rlist.cpp">
+      <Filter>segm</Filter>
+    </ClCompile>
+    <ClCompile Include="edge\BgEdge.cpp">
+      <Filter>edge</Filter>
+    </ClCompile>
+    <ClCompile Include="edge\BgEdgeDetect.cpp">
+      <Filter>edge</Filter>
+    </ClCompile>
+    <ClCompile Include="edge\BgEdgeList.cpp">
+      <Filter>edge</Filter>
+    </ClCompile>
+    <ClCompile Include="edge\BgGlobalFc.cpp">
+      <Filter>edge</Filter>
+    </ClCompile>
+    <ClCompile Include="edge\BgImage.cpp">
+      <Filter>edge</Filter>
+    </ClCompile>
+    <ClCompile Include="preprocessing\PreProcessing.cpp">
+      <Filter>PreProcessing</Filter>
+    </ClCompile>
+    <ClCompile Include="preprocessing\AntiGeometricDiffusion.cpp">
+      <Filter>PreProcessing</Filter>
+    </ClCompile>
+    <ClCompile Include="preprocessing\RegionLabelling.cpp">
+      <Filter>PreProcessing</Filter>
+    </ClCompile>
+    <ClCompile Include="preprocessing\Utilities.cpp">
+      <Filter>PreProcessing</Filter>
+    </ClCompile>
+    <ClCompile Include="preprocessing\PostProcessing.cpp">
+      <Filter>PreProcessing</Filter>
+    </ClCompile>
+    <ClCompile Include="preprocessing\MSWrap.cpp">
+      <Filter>PreProcessing</Filter>
+    </ClCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <Filter Include="prompt">
+      <UniqueIdentifier>{899990c0-31eb-43fa-8537-4ba93177c952}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="edge">
+      <UniqueIdentifier>{0d278b3f-105f-44c5-9675-1918932c45a4}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="segm">
+      <UniqueIdentifier>{d4f5eb29-06e9-4dee-854a-9098290a8376}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="PreProcessing">
+      <UniqueIdentifier>{49080ed9-ea05-4f07-8150-b73509313278}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+</Project>
