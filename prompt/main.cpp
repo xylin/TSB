@@ -68,14 +68,14 @@ int main(int argc, char **argv)
 
 	cerr << "Finished mean shift" << endl;
 
-	imwrite("C:/development/projects/TSB/MeanShift.jpg", matMeanShift);
+	string strOutputFile = argv[2];
+
+	imwrite(strOutputFile, matMeanShift);
 
 	Mat matOutput;	
 
 /*	PostProcessing(matBlackHat, matMeanShift, matOutput);
 
-
-	string strOutputFile = argv[2];
 
 	imwrite(strOutputFile, matOutput);	*/
 
