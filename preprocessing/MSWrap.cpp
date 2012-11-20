@@ -60,7 +60,7 @@ void CreateEDS(const int SpatialBandwidth, const int RangeBandwidth, const int M
 
 	//Save the resulting segmented image with the region boundaries
 	//overlayed.
-	outIndiEds << "Save('" << "EDISON.ppm" << "', PPM, SEGM_IMAGE);" << endl;
+	outIndiEds << "Save('" << "EDISON.ppm" << "', PPM, SEGM_IMAGE_BOUNDARIES);" << endl;
 	//outIndiEds << "Save('" << strPPMOutput << "', PPM, SEGM_IMAGE);" << endl;
 
 	outIndiEds.close();		

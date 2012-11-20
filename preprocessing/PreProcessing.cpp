@@ -8,22 +8,11 @@
 #include "PreProcessing.h"
 
 
-void PreProcessing(const Mat& matInput, Mat&matBalckHat, Mat& matMask)
+void PreProcessing(const Mat& matInput, Mat&matBalckHat, Mat& matAntiGeo)
 {
-	//Mat dst1;
+	Mat gray;
 
-	int element_shape = MORPH_RECT;
-
-	int an =20;
-	Mat element = getStructuringElement(element_shape, Size(an*2+1, an*2+1), Point(an, an) );
-
-	morphologyEx(matInput, matBalckHat, CV_MOP_BLACKHAT, element);
-	
-	imwrite("C:/development/projects/TSB/BackHat.jpg", matBalckHat);
-
-/*	Mat gray;
-
-	cvtColor(matBalckHat, gray, CV_BGR2GRAY);
+	cvtColor(matInput, gray, CV_BGR2GRAY);
 	
 	int iWidth = matInput.cols;
 	int iHeight = matInput.rows;
@@ -46,13 +35,13 @@ void PreProcessing(const Mat& matInput, Mat&matBalckHat, Mat& matMask)
 	memset(pfOutput, 0, sizeof(float)*iWidth*iHeight);
 
 	float fDelta = 0.5;
-	int iMaxIterations =0;
+	int iMaxIterations =10;
 	int iType = 1;
 
 	AntiGeometricDiffusionInSlice(pfInput, fDelta, iMaxIterations, iType, iHeight, iWidth, pfOutput);
 
-	matMask.create(gray.size(), gray.type());
-	matMask.setTo(0);
+	matAntiGeo.create(gray.size(), gray.type());
+	matAntiGeo.setTo(0);
 
 	iCount = 0;
 
@@ -60,17 +49,28 @@ void PreProcessing(const Mat& matInput, Mat&matBalckHat, Mat& matMask)
 	{
 		for(int i=0; i<iWidth; i++)
 		{
-			matMask.at<uchar>(j, i) = pfOutput[iCount];
+			matAntiGeo.at<uchar>(j, i) = pfOutput[iCount];
 
 			iCount++;
 		}
 	}
 
-	Mat dump;	
+//	Mat dump;	
 
-	medianBlur(matMask, dump, 3);
+//	medianBlur(matAntiGeo, dump, 3);
 	
-	matMask = dump;
+//	matAntiGeo = dump;
 	
-	imwrite("C:/Development/projects/TSB/antiGeo.jpg", matMask);*/
+	imwrite("C:/Development/projects/TSB/antiGeo.jpg", matAntiGeo);
+
+	int element_shape = MORPH_RECT;
+
+	int an =20;
+	Mat element = getStructuringElement(element_shape, Size(an*2+1, an*2+1), Point(an, an) );
+	
+	matBalckHat.setTo(0);
+
+	morphologyEx(matAntiGeo, matBalckHat, CV_MOP_BLACKHAT, element);
+	
+	imwrite("C:/development/projects/TSB/BackHat.jpg", matBalckHat);
 }
