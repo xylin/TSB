@@ -61,7 +61,7 @@ void PreProcessing(const Mat& matInput, Mat&matBalckHat, Mat& matAntiGeo)
 	
 //	matAntiGeo = dump;
 	
-	imwrite("C:/Development/projects/TSB/antiGeo.jpg", matAntiGeo);
+//	imwrite("C:/Development/projects/TSB/antiGeo.jpg", matAntiGeo);
 
 	int element_shape = MORPH_RECT;
 
@@ -72,5 +72,5 @@ void PreProcessing(const Mat& matInput, Mat&matBalckHat, Mat& matAntiGeo)
 
 	morphologyEx(matAntiGeo, matBalckHat, CV_MOP_BLACKHAT, element);
 	
-	imwrite("C:/development/projects/TSB/BackHat.jpg", matBalckHat);
+//	imwrite("C:/development/projects/TSB/BackHat.jpg", matBalckHat);
 }

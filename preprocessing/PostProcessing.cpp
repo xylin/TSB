@@ -27,7 +27,7 @@ void PostProcessing(Mat& matAntiGeo, Mat matMeanShift, Mat&matOutput)
 
 	RemoveNoiseEdgePoint(edge, iSize, matEdgeFiltered);
 
-	imwrite("C:/development/projects/TSB/BackHat_edge.jpg", matEdgeFiltered);
+//	imwrite("C:/development/projects/TSB/BackHat_edge.jpg", matEdgeFiltered);
 		
 //	int anA = 3;
 //	int element_shapeA = 0;
