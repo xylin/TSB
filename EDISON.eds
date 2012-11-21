@@ -1,0 +1,13 @@
+SpatialBandwidth = 7;
+RangeBandwidth = 6;
+MinimumRegionArea = 500;
+Speedup = NONE;
+GradientWindowRadius = 2;
+MixtureParameter = 0.1;
+EdgeStrengthThreshold = 0.0001;
+Load('InputEDISON.ppm', IMAGE);
+Synergistic ON;
+UseCustomWeightMap OFF;
+DisplayProgress ON;
+Segment;
+Save('EDISON.ppm', PPM, SEGM_IMAGE_BOUNDARIES);

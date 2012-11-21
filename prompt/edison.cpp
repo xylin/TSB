@@ -524,6 +524,7 @@ int EDISON::meanShift(int action)
     break;
   case EDISON_SEGMENT:
     //filter the image
+	  CmCPrompt("before filter...\n");
     iProc.Filter(sigmaS, sigmaR, (SpeedUpLevel)(*(int *)(parameterList_[PARAM_SPEEDUP])));
     if(iProc.ErrorStatus) {
       return EXE_ERROR;

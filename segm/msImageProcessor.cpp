@@ -4351,6 +4351,8 @@ void msImageProcessor::NewNonOptimizedFilter(float sigmaS, float sigmaR)
    // let's use some temporary data
    double* sdata;
    sdata = new double[lN*L];
+    
+   msSys.Prompt("memery done...\n ");
 
    // copy the scaled data
    int idxs, idxd;
@@ -4383,6 +4385,9 @@ void msImageProcessor::NewNonOptimizedFilter(float sigmaS, float sigmaR)
             sdata[idxs++] = data[idxd++]/sigmaR;
       }
    }
+
+    msSys.Prompt("sdata done...\n ");
+
    // index the data in the 3d buckets (x, y, L)
    int* buckets;
    int* slist;
@@ -4430,6 +4435,9 @@ void msImageProcessor::NewNonOptimizedFilter(float sigmaS, float sigmaR)
 
       idxs += lN;
    }
+
+   msSys.Prompt("buck done...\n ");
+
    // init bucNeigh
    idxd = 0;
    for (cBuck1=-1; cBuck1<=1; cBuck1++)
